@@ -1,0 +1,72 @@
+$section-class : 'nk-section';
+
+.#{$section-class}{
+
+  // business solution - Features 2 page
+  &-tools { 
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &-integrate { 
+    .nk-block-head-content { 
+      padding: 60px 0px;
+    }
+  }
+
+ }
+
+
+
+//  responsive breakpoints 
+
+@include media-breakpoint-up(lg) { 
+
+  .#{$section-class} { 
+
+      &-blog { 
+        &-sidebar { 
+            top: 120px;
+            left: 0px;
+            position: sticky;
+        }
+      }
+
+      &-terms {
+        .nk-entry {
+            &-sidebar { 
+              top: 120px;
+              left: 0px;
+              position: sticky;
+            }
+        }
+      }
+
+      &-integrate { 
+
+        .nk-block-head-content { 
+          padding: 120px 0px;
+        }
+
+        &::before { 
+          display: none;
+        }
+      }
+
+
+  }
+}
+
+
+@include media-breakpoint-up(xl) { 
+  .#{$section-class} { 
+    &-integrate { 
+      .nk-block-head-content { 
+        padding: 245px 0px;
+      }
+    }
+  }
+}
+
+

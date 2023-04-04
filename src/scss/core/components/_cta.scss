@@ -1,0 +1,34 @@
+.nk-cta-card{
+    .nk-block-head-content{
+        padding: 32px;
+    }
+}
+.nk-cta-wrap.is-theme{
+    .nk-block-text,
+    .media-text p{
+        opacity: 0.7;
+    }
+}
+
+@include media-breakpoint-up(md){
+    .nk-cta-card{
+        .nk-block-head-content{
+            padding: 60px;
+        }
+    }
+}
+@include media-breakpoint-up(xxl){
+    .nk-cta-img-wrap-negative{
+        margin-top: -5rem;
+    }
+    .nk-cta-card{
+        .nk-block-head-content{
+            padding: 106px 116px;
+        }
+        &-s1{
+            .nk-block-head-content{
+                padding: 60px;
+            }
+        }
+    }
+}

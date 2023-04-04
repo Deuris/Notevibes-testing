@@ -1,0 +1,62 @@
+.gap{
+    margin-top: calc(-1 * var(--#{$prefix}gutter-y));
+    margin-right: calc(-.5 * var(--#{$prefix}gutter-x));
+    margin-left: calc(-.5 * var(--#{$prefix}gutter-x));
+    &[class*="gy-"],
+    &[class*="gx-"]{
+        margin-left: 0;
+        margin-right: 0;
+        >*{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    > * {
+        padding-right: calc(var(--#{$prefix}gutter-x) * .5);
+        padding-left: calc(var(--#{$prefix}gutter-x) * .5);
+        margin-top: var(--#{$prefix}gutter-y);
+    }
+}
+
+.section-space{
+    // padding-top: $section-space-top-sm;
+    // padding-bottom: $section-space-bottom-sm;
+    padding: $section-space 0;
+    &-top {
+        padding-top: $section-space-top-sm;
+        &-sm{
+            padding-top: $section-space-top-sm; 
+        }
+    }
+    &-bottom {
+        padding-bottom: $section-space-bottom-sm;
+        &-sm{
+            padding-bottom: $section-space-bottom-sm; 
+        }
+    }
+
+    &-banner-top { 
+        padding-top: 10rem;
+    }
+}
+
+@include media-breakpoint-up(lg){
+    .section-space{
+        padding: $section-space 0;
+        &-top {
+            padding-top: $section-space-top;
+        }
+        &-bottom {
+            padding-bottom: $section-space-bottom;
+        }
+    }
+}
+
+
+
+@include media-breakpoint-down(sm) { 
+    .section-space { 
+      padding: 1.875rem 0px;
+    }
+  }
+  

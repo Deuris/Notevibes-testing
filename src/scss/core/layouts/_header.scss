@@ -1,0 +1,126 @@
+$header-class: 'nk-header';
+$navbar-overlay-transition : 400ms ease;
+
+
+.#{$header-class}{
+    &-main{
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        position: fixed;
+        padding: .8438rem 0px;
+        transition: all 0.2s linear;
+        
+        &.has-separate{
+            border-bottom: 1px solid $header-main-border;
+        }
+
+        &.has-fixed {
+            background-color: #fff;
+            box-shadow: 4px 4px 36px 0px rgb(192 192 192 / 16%), -4px -4px 36px 0px rgb(192 192 192 / 12%) !important;
+
+            &.is-theme {
+                box-shadow: none !important;
+                background-color: #1C2B43;
+            }
+        }
+
+    }
+
+    &-wrap{
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &-logo{
+        display: inline-flex;
+    }
+    &-action{
+        padding-top: .375rem;
+        padding-bottom: .375rem;
+    }
+}
+
+.nk { 
+    &-navbar-toggle { 
+        .btn {
+            .icon { 
+                font-size: 1.375rem;
+            }
+        }
+    }
+
+}
+
+.navbar{
+    &-overlay{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $navbar-overlay;
+        z-index: 1025;
+        animation: overlay-fade-out $navbar-overlay-transition 1;
+    }
+    &-shown{
+        overflow: hidden;
+        .navbar-overlay{
+            animation: overlay-fade-in $navbar-overlay-transition 1;
+        }
+    }
+}
+
+
+
+@keyframes overlay-fade-in {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes overlay-fade-out {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+// @each $point in $points {
+//     @include media-breakpoint-up($point){
+//        [data-sidebar-collapse="#{$point}"]{
+//            .nk{
+//                &-sidebar{
+//                     top: 100px;
+//                     position: sticky;
+//                     min-height: auto;
+//                     height: auto;
+//                     max-height: calc(100vh - 140px);
+//                     width: auto;
+//                     transform: translateX(0);
+//                     box-shadow: 0 1px 0 rgba($border-light, 0.50);
+//                     border: 1px solid $border-light;
+//                     border-radius: 0.5rem;
+//                     &-toggle{
+//                             display: none;
+//                     }
+//                     + .nk-wrap{
+//                         padding-left: $sidebar-width-normal;
+//                         > .nk-header-fixed {
+//                             left: $sidebar-width-normal;
+//                         }
+//                     }
+//                }
+//            }
+//        }
+//     }
+// }

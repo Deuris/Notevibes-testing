@@ -1,0 +1,132 @@
+// btn 
+.btn{
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.5rem;
+    justify-content: center;
+    &:hover:not([class*="btn-"]){
+        color: $nk-input-btn-hover-color;
+    }
+    .icon{
+        font-size: 1.125rem;
+    }
+    .icon + span,
+    span + .icon{
+        margin-left: .625rem;
+    }
+    &-outline { 
+        &-warning { 
+          &:hover {
+            color: $white;
+          }
+        }
+    }
+    &-light,
+    &-outline-light {
+        color: $base-color;
+    }
+
+    &-link{
+        display: inline-flex;
+        align-items: center;
+        font-weight: $nk-font-weight-semibold;
+        .icon + span,
+        span + .icon{
+            margin-left: .5rem;
+        }
+    }
+    &-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+        --#{$prefix}btn-padding-y: 0;
+        --#{$prefix}btn-padding-x: 0;
+       
+        &.btn{
+            &-xs{
+                width: $size-xs;
+                height: $size-xs;
+            }
+            &-sm{
+                width: $size-sm;
+                height: $size-sm;
+            }
+            &-md{
+                width: $size-md;
+                height: $size-md;
+            }
+        }
+    }
+    &-block{
+        display: flex;
+        width: 100%;
+    }
+
+    &-white { 
+        color: $darker;
+    }
+
+}
+
+//btn zoom
+@mixin btn-zoom-active {
+    opacity: 1;
+    height: 120%;
+    width: 120%;
+}
+.btn-zoom{
+    position: relative;
+    z-index: 1;
+    color: $btn-zoom-color;
+    border-color: transparent !important;
+    &:focus{
+        box-shadow: none;
+    }
+    &:before{
+        position: absolute;
+        z-index: -1;
+        width: $btn-zoom-width;
+        height: $btn-zoom-height;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: 50% 50%;
+        content: '';
+        background-color: $btn-zoom-bg;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all .3s ease;
+        .show > &{
+            @include btn-zoom-active();
+        }
+    }
+    &:hover:before, 
+    &:focus:before, 
+    &.active:not(.revarse):before{
+        @include btn-zoom-active();
+    }
+    &.active:hover:before{
+        background-color: $btn-zoom-bg;
+    }
+    a:hover &{
+        &:before{
+            @include btn-zoom-active();
+        }
+    }
+}
+
+
+// responsive breakpoints 
+@include media-breakpoint-up(lg) { 
+    
+    .btn { 
+        
+        &-icon { 
+            width: $size-rg;
+            height: $size-rg;
+        }
+        
+        &-spacing-x-lg { 
+            padding: .75rem 3.5rem;
+        }
+    }
+}

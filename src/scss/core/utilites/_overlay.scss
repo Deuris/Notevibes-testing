@@ -1,0 +1,46 @@
+%overlay { 
+  z-index: 1;
+  content: '';
+  position: absolute;
+}
+
+.overlay { 
+
+
+  // variants 
+  &-1 { 
+   &::before { 
+    width: 100%;
+    height: 178px;
+    @extend %overlay;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+   }
+  }
+
+  // position
+  &-bottom { 
+    &::before { 
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(xl) { 
+  .overlay { 
+    &-2 { 
+      z-index: 1;
+      position: absolute;
+      &::before { 
+        top: 0;
+        left: 0;
+        content: '';
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+}

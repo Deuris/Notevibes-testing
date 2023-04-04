@@ -1,0 +1,40 @@
+.nk-footer { 
+
+  &-landing {
+    &-copyright { 
+      text-align: center;
+      background-color: $normal-layout-dark-900;
+      span { 
+        color: #fff;
+        font-size: .875rem;
+        line-height: 1.375rem;
+      }
+    }
+  }
+
+  &-bottom { 
+    .nk-list-link { 
+      
+      li {
+         position: relative;
+
+         &::after { 
+          content: '';
+          width: 1px;
+          top: 50%;
+          right: 0px;
+          height: 80%;
+          position: absolute;
+          background-color: $dark;
+          transform: translateY(-50%);
+         }
+
+         &:nth-last-child(1) { 
+          &::after { 
+            display: none;
+          }
+         }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "color-bg";
+
+$utilities: map-merge(
+  $utilities, (
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+        24px : 24px,
+        40px : 40px,
+        60: 60px,
+        88: 88px,
+        120: 120px,
+        140: 140px,
+        185: 185px,
+        200: 200px,
+        216: 216px,
+        240: 240px,
+        260: 260px,
+        280: 280px,
+        300: 300px,
+        400: 400px,
+        500: 500px,
+        560: 560px,
+        580: 580px,
+        600: 600px,
+        
+      )
+    ),
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+        20: 20px,
+        88: 88px,
+      )
+    ),
+    "font-size": (
+      property: font-size,
+      class: fs,
+      values: (
+        20: 20px,
+        26: 26px,
+      )
+    ),
+    "shadow": (
+      property: box-shadow,
+      class: shadow,
+      values: (
+        none: none,
+        null: $box-shadow,
+        sm: $box-shadow-sm,
+        lg: $box-shadow-lg,
+        xl: $box-shadow-xl,
+      )
+    ),
+  )
+);
