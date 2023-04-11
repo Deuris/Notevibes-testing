@@ -1,6 +1,0 @@
-
-@each $rotate, $value in $rotates {
-  .rotate-#{$rotate} { 
-    transform: rotate($value);
-  }
-}
