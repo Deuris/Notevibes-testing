@@ -729,35 +729,14 @@
                 <div class="col-lg-8">
                     <div class="bottom-menu">
                         <div>
-                            <b>Products</b>
+                            <b>Info</b>
                             <ul>
-                                <li><a href="webapp.html">Online</a></li>
-                                <li><a href="software.html">Software</a></li>
-                                <li><a href="commercial.html">Commercial</a></li>
-                                <li><a href="widget.html">WebReader</a></li>
-                                <li><a href="edu.html">EDU</a></li>
-                                <li><a href="chrome_ext.html">Chrome Extension</a></li>
-                                <li><a href="appdownload.html">iOS & Android app</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <b>About Us</b>
-                            <ul>
-                                <li><a href="./testimonials.html">Testimonials</a></li>
-                                <li><a href="https://help.naturalreaders.com/en/">FAQ</a></li>
                                 <li><a href="./about.html">About Us</a></li>
-                                <li><a href="https://naturalsoft.freshstatus.io/" target="_blank">Service Status</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <b>Policies</b>
-                            <ul>
                                 <li><a href="./policies.html#refund">Refund</a>
                                 </li>
                                 <li><a href="./policies.html#privacy">Privacy & Terms</a></li>
                                 <li><a href="./policies.html#agreement">User Agreement</a></li>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -817,37 +796,7 @@
     <script defer src="./comfiles/js/index.js"></script>
     <!-- <script defer src="./comfiles/js/login.js"></script> -->
 
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CW9Z1LWZ31"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {dataLayer.push(arguments);}
-		gtag('js', new Date());
 
-		gtag('config', 'G-CW9Z1LWZ31');
-		function getparastr(strname) {
-			paramValue = "";
-			isFound = false;
-			if (window.location.href.indexOf("?") > 0 && window.location.href.indexOf("=") > 0) {
-				arrSource = unescape(window.location.href).substring(window.location.href.indexOf("?") + 1, window.location.href.length).split("&");
-				i = 0;
-				while (i < arrSource.length && !isFound) {
-					if (arrSource[i].indexOf("=") > 0) {
-						if (arrSource[i].split("=")[0].toLowerCase() == strname.toLowerCase()) {
-							paramValue = arrSource[i].split("=")[1];
-							isFound = true;
-						}
-					}
-					i++;
-				}
-			}
-			return paramValue;
-		}
-
-		var url = getparastr('url');
-		if (url != null && url != '') {
-			window.location.href = './online/index.html?url=' + url;
-		}
-	</script>
 
 </body>
 
