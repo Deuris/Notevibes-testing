@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/deuri/OneDrive/Documents/GitHub/Notevibes-testing -not -path */.git/* -type d)",
+      "Bash(find /c/Users/deuri/OneDrive/Documents/GitHub/Notevibes-testing -not -path '*/.git/*' ! -type d -exec wc -c {} +)",
+      "Bash(unzip -l /c/Users/deuri/OneDrive/Documents/GitHub/Notevibes-testing/ajax.zip)",
+      "Bash(node -e \":*)",
+      "Bash(python3 -c \":*)"
+    ]
+  }
+}

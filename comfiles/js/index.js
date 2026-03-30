@@ -348,14 +348,14 @@ const plusVoices = {
       "name": "Alonso",
       "language": "es-US",
       "languageName": "Spanish (US)",
-      "gender": "famale",
+      "gender": "female",
       "icon": "https://wwwnaturalreaderscom.s3.amazonaws.com/comm2022-portraits/spanish/Alonso.jpg"
     },
     {
       "name": "Paloma",
       "language": "es-US",
       "languageName": "Spanish (US)",
-      "gender": "famale",
+      "gender": "female",
       "icon": "https://wwwnaturalreaderscom.s3.amazonaws.com/comm2022-portraits/spanish/Paloma.jpg"
     },
     {
@@ -962,8 +962,8 @@ const a_voice = [
   },
 ];
 
-var preVideo = null;
-var preOverlay = null;
+let preVideo = null;
+let preOverlay = null;
 function setUpVideo() {
 
   $('.com-video-card .com-video-status').click(function () {
@@ -987,7 +987,7 @@ function setUpVideo() {
 
     if (preVideo != null) {
       if (preVideo == myVideo) {
-        var isPlaying = myVideo.currentTime > 0 && !myVideo.paused && !myVideo.ended
+        const isPlaying = myVideo.currentTime > 0 && !myVideo.paused && !myVideo.ended
           && myVideo.readyState > myVideo.HAVE_CURRENT_DATA;
         if (!isPlaying) {
           myVideo.play();
@@ -1018,13 +1018,13 @@ function setUpVideo() {
 }
 
 
-var creading = false;
-var coldxobject = '';
-var currentLanguage = "English (US)";
+let creading = false;
+let coldxobject = '';
+let currentLanguage = "English (US)";
 
-var currentVoiceName = plusVoices["English (US)"][0]["name"];
-var currentVoice = plusVoices["English (US)"][0];
-var loadIndex = 0;
+let currentVoiceName = plusVoices["English (US)"][0]["name"];
+let currentVoice = plusVoices["English (US)"][0];
+let loadIndex = 0;
 
 const pathPre = "https://wwwnaturalreaderscom.s3.amazonaws.com/comm2022/"
 
@@ -1061,7 +1061,7 @@ function createPlayList(language) {
   }
 
   const realLength = voiceobjs.length;
-  var limitLength = realLength > 3 ? 3 : realLength;
+  const limitLength = realLength > 3 ? 3 : realLength;
   if (realLength <= 3) {
     $("#com-load-more").hide();
   } else {
@@ -1074,11 +1074,11 @@ $("#com-load-more").click(function () {
   const voiceobjs = plusVoices[currentLanguage];
   const realLength = voiceobjs.length;
   if (loadIndex < realLength) {
-    var max = realLength > (loadIndex + 3) ? (loadIndex + 3) : realLength;
+    let max = realLength > (loadIndex + 3) ? (loadIndex + 3) : realLength;
     addVoiceCell(loadIndex, max, voiceobjs);
   } else {
     loadIndex = 0;
-    var max = realLength > (loadIndex + 3) ? (loadIndex + 3) : realLength;
+    let max = realLength > (loadIndex + 3) ? (loadIndex + 3) : realLength;
     addVoiceCell(loadIndex, max, voiceobjs);
   }
 });
@@ -1373,36 +1373,36 @@ function getLocationAndLangName(lang) {
     case 'es-US':
       return 'SpanishUs';
   }
-  return this.getLanguageName(lang, false);
+  return getLanguageName(lang, false);
 }
 
 function playComm(voiceDiv, style = '') {
-  var voiceUrl = '';
-  var pathStr = '';
-  var id = '';
+  let voiceUrl = '';
+  let pathStr = '';
+  let id = '';
   if (style == '') {
     const urlPrefix = 'https://wwwnaturalreaderscom.s3.amazonaws.com/plus2022/';
     if (!currentVoice || !currentVoice.language || !currentVoice.name)
       return '';
-    var languageName = getLanguageName(currentVoice.language, false);
+    let languageName = getLanguageName(currentVoice.language, false);
     const locationAndLangName = getLocationAndLangName(currentVoice.language)
 
-    var voiceName = !currentVoice.name.includes('(Child)') ? currentVoice.name : currentVoice.name.slice(0, -8);
+    let voiceName = !currentVoice.name.includes('(Child)') ? currentVoice.name : currentVoice.name.slice(0, -8);
     voiceName = encodeURIComponent(voiceName.normalize('NFD'));
-    var urlSuffix = `${languageName}Voices/${locationAndLangName}${voiceName}.mp3`;
+    const urlSuffix = `${languageName}Voices/${locationAndLangName}${voiceName}.mp3`;
     voiceUrl = urlPrefix + urlSuffix;
 
     pathStr = voiceUrl;
     id = urlSuffix;
   } else {
     const urlPrefix = 'https://wwwnaturalreaderscom.s3.amazonaws.com/comm2022/';
-    var voiceUrl = '';
+    voiceUrl = '';
     const languageName = getLanguageName(currentVoice.languageCode, false);
     const locationAndLangName = getLocationAndLangName(currentVoice.languageCode)
-    var voiceName = currentVoice.voiceName.split(" (")[0];
+    let voiceName = currentVoice.voiceName.split(" (")[0];
     voiceName = voiceName.replace(' *', '');
     voiceName = encodeURIComponent(voiceName.normalize('NFD'));
-    var urlSuffix = `${languageName}Voices/${locationAndLangName}${voiceName}${style}.mp3`;
+    const urlSuffix = `${languageName}Voices/${locationAndLangName}${voiceName}${style}.mp3`;
     voiceUrl = urlPrefix + urlSuffix;
 
     pathStr = voiceUrl;
@@ -1411,7 +1411,6 @@ function playComm(voiceDiv, style = '') {
 
 
   if (creading == true && id == coldxobject) {
-    // console.error('jPlayer return');
     $("#jquery_jplayer_1").jPlayer("stop");
     creading = false;
     return;
@@ -1424,13 +1423,11 @@ function playComm(voiceDiv, style = '') {
       $(this).jPlayer("setMedia", { // Set the media
         mp3: pathStr
       }).jPlayer("play"); // Attempt to auto play the media
-      // console.error('jPlayer play');
     },
     play: function () { // The $.jPlayer.event.play event
       creading = true;
     },
     ended: function () { // The $.jPlayer.event.ended event
-      // console.error('jPlayer ended');
       creading = false;
       $(voiceDiv).removeClass('playing');
     },
@@ -1507,7 +1504,7 @@ function getVoiceStyleName(style) {
     case "narration-professional":
       return "Narration";
     case "newscast-casual":
-      return "NewscastCasual"
+      return "NewscastCasual";
     case "newscast-formal":
       return "NewscastFormal";
     case "cheerful":
@@ -1520,20 +1517,18 @@ function getVoiceStyleName(style) {
       return "Sad";
     case "excited":
       return "Excited";
-    case "empathetic":
-      return "Empathetic";
     case "friendly":
       return "Friendly";
     case "terrified":
       return "Terrified";
     case "shouting":
-      return "Shouting"
+      return "Shouting";
     case "unfriendly":
-      return "Unfriendly"
+      return "Unfriendly";
     case "whispering":
-      return "Whispering"
+      return "Whispering";
     case "hopeful":
-      return "Hopeful"
+      return "Hopeful";
     default:
       return "";
   }
@@ -1547,5 +1542,3 @@ $(document).ready(function () {
 
   createStyles();
 });
-
-
